@@ -59,7 +59,7 @@ function ssh_add_all() {
 }
 
 function git_dirty() {
-    changes=" %F{$acolor} ✗ commit%F{$scolor}"
+    changes=" %F{$acolor} X commit%F{$scolor}"
     if [ "$(git status --porcelain 2> /dev/null | tail -n1)" != "" ]; then
         echo "$changes"
 	    return
@@ -68,7 +68,7 @@ function git_dirty() {
 
 function git_push() {
     if [ "$(git rev-list HEAD...origin/master --count 2> /dev/null)" -gt 0 ]; then
-        echo "%F{$acolor} ✗ push%F{$scolor}"
+        echo "%F{$acolor} P push%F{$scolor}"
         return
     fi
 }
